@@ -1,30 +1,45 @@
 import datetime
 
-start = datetime.time(0, 0, 0)
-end = datetime.time(0, 0, 0)
-current = datetime.time(0, 0, 0)
 
-
-def close_or_open(situation):
-    global start
-    global end
-    global current
-    if situation == 'open':
-        print('0')
-    elif situation == 'close':
-        print('0')
+def open_or_close(vent_status, ):
+    is_input_valid(vent_status)
+    wanted_status = get_wanted_vent_status()
+    get_wanted_vent_status()
+    if vent_status == wanted_status:
+        print('you dont need to change the status')
     else:
-        print('1', 'The inserted situation is not accepted')
-    start = datetime.time(21, 0, 0)
-    end = datetime.time(9, 0, 0)
+        print('you need to change the status')
+
+
+def is_input_valid(situation):
+    if situation == 'open':
+        valid = 0
+        return valid
+    elif situation == 'close':
+        valid = 0
+        return valid
+    else:
+        print('The inserted situation is not accepted')
+        valid = 1
+
+
+
+def get_wanted_vent_status():
     current = datetime.datetime.now().time()
-    if close_or_open(start, end, current) == True:
-        situation = 'open'
     start = datetime.time(12, 0, 0)
-    end = datetime.time(16, 0, 0)
-    current = datetime.datetime.now().time()
-    if close_or_open(start, end, current) == True:
-        situation = 'close'
+    end = datetime.time(15, 0, 0)
+    time = start <= current <= end
+    if time == True:
+        wanted_status = 'close'
+        return wanted_status
+    else:
+        wanted_status = 'open'
+        return wanted_status
 
 
-close_or_open('open')
+def main():
+    open_or_close('fgcxggfd')
+
+
+if __name__ == '__main__':
+    main()
