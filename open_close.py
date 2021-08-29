@@ -1,7 +1,7 @@
 import datetime
 
 
-def open_or_close(vent_status, ):
+def open_or_close(vent_status):
     is_input_valid(vent_status)
     wanted_status = get_wanted_vent_status()
     get_wanted_vent_status()
