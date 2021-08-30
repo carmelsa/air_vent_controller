@@ -1,5 +1,7 @@
 import datetime
 
+vent_status = input('enter the vent status')
+
 
 def open_or_close(vent_status):
     is_input_valid(vent_status)
@@ -39,7 +41,7 @@ def get_wanted_vent_status():
 
 
 def main():
-    open_or_close('fghffg')
+    open_or_close(vent_status)
 
 
 if __name__ == '__main__':
