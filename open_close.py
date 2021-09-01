@@ -1,6 +1,6 @@
 import datetime
 
-vent_status = input('enter the vent status')
+vent_status = input('enter the vent status:\n')
 
 
 def open_or_close(vent_status):
@@ -22,16 +22,10 @@ def is_input_valid(situation):
 
 def get_wanted_vent_status():
     current = datetime.datetime.now().time()
-    start = datetime.time(12, 0, 0)
-    end = datetime.time(16, 0, 0)
-    time = start <= current <= end
-    if time == True:
+    if current.hour >= 12 and current.hour <= 16:
         wanted_status = 'close'
         return wanted_status
-    start = datetime.time(16, 0, 0)
-    end = datetime.time(21, 0, 0)
-    time = start <= current <= end
-    if time == True:
+    if current.hour >= 16 and current.hour <= 21:
         wanted_status = 'open'
         return wanted_status
 
