@@ -1,0 +1,42 @@
+import datetime
+
+vent_status = input('enter the vent status:\n')
+
+
+def open_or_close(vent_status):
+    is_input_valid(vent_status)
+    wanted_status = get_wanted_vent_status()
+    if vent_status == wanted_status:
+        print('you dont need to change the status')
+    else:
+        print('you need to change the status')
+
+
+def is_input_valid(situation):
+    if situation == 'open' or situation == 'close':
+        return
+    else:
+        print('The inserted situation is not accepted')
+        exit()
+
+
+def get_wanted_vent_status():
+    current = datetime.datetime.now().time()
+    if current.hour >= 12 and current.hour <= 16:
+        wanted_status = 'close'
+        return wanted_status
+    if current.hour >= 16 and current.hour <= 21:
+        wanted_status = 'open'
+        return wanted_status
+
+    else:
+        wanted_status = 'open'
+        return wanted_status
+
+
+def main():
+    open_or_close(vent_status)
+
+
+if __name__ == '__main__':
+    main()
